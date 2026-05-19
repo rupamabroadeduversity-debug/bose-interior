@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-brand-cream: #f6efe7;
+  --color-brand-cream-strong: #e7d7c3;
+  --color-brand-gold: #a38d72;
+  --color-brand-walnut: #705947;
+  --color-brand-forest: #31423c;
+  --color-brand-charcoal: #171411;
+  --color-brand-stone: #6f655d;
+
+  --font-sans: "Manrope", "system-ui", "sans-serif";
+  --font-heading: "Cormorant Garamond", "Georgia", "serif";
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[var(--color-brand-cream)] font-sans text-[var(--color-brand-charcoal)] antialiased;
+    background-image:
+      radial-gradient(circle at top left, rgba(163, 141, 114, 0.16), transparent 30%),
+      radial-gradient(circle at right 20%, rgba(49, 66, 60, 0.08), transparent 24%),
+      linear-gradient(180deg, #fcf8f4 0%, #f6efe7 42%, #fffdfa 100%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading tracking-tight;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(107, 75, 53, 0.4) transparent;
+  }
+
+  ::selection {
+    background: rgba(163, 141, 114, 0.24);
+    color: var(--color-brand-charcoal);
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-kicker {
+    @apply text-xs sm:text-sm uppercase tracking-[0.28em] font-semibold text-[var(--color-brand-gold)];
+  }
+
+  .luxury-card {
+    @apply rounded-[2rem] border border-white/60 bg-white/70 backdrop-blur shadow-[0_18px_60px_rgba(33,24,18,0.08)];
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-semibold text-white transition duration-300;
+    background: linear-gradient(135deg, var(--color-brand-charcoal), var(--color-brand-walnut));
+    box-shadow: 0 18px 40px rgba(29, 24, 20, 0.18);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 22px 48px rgba(29, 24, 20, 0.22);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-semibold transition duration-300;
+    color: var(--color-brand-charcoal);
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(107, 75, 53, 0.16);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.96);
+    border-color: rgba(184, 138, 82, 0.4);
+  }
+}
